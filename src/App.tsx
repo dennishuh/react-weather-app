@@ -19,7 +19,9 @@ function App() {
 	const [data, setData] = useState<WeatherData | null>(null);
 	const [location, setLocation] = useState('');
 
-	const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`;
+	const appId = import.meta.env.VITE_WEATHER_API_KEY;
+
+	const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${appId}`;
 
 	const searchLocation = async (event: React.SyntheticEvent) => {
 		event.preventDefault();
